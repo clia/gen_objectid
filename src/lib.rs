@@ -5,14 +5,14 @@ use log::warn;
 
 PG_MODULE_MAGIC!();
 
-PG_FUNCTION_INFO_V1!(pg_finfo_gen_object_id);
+PG_FUNCTION_INFO_V1!(pg_finfo_gen_objectid);
 
 #[no_mangle]
-pub extern "C" fn gen_object_id(_fcinfo: FunctionCallInfo) -> Datum {
-    PG_RETURN_TEXT(gen_objectid())
+pub extern "C" fn gen_objectid(_fcinfo: FunctionCallInfo) -> Datum {
+    PG_RETURN_TEXT(gen_objectid_fn())
 }
 
-pub fn gen_objectid() -> String {
+pub fn gen_objectid_fn() -> String {
     let mut s = "".to_owned();
     match oid::ObjectId::new() {
         Ok(objectid) => {
@@ -29,6 +29,6 @@ pub fn gen_objectid() -> String {
 mod tests {
     #[test]
     fn test_gen_objectid() {
-        println!("{}", crate::gen_objectid())
+        println!("{}", crate::gen_objectid_fn())
     }
 }
