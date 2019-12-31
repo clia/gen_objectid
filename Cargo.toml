@@ -1,0 +1,14 @@
+[package]
+name = "gen_objectid"
+version = "1.0.0"
+authors = ["Cris Liao <clia@163.com>"]
+edition = "2018"
+
+[lib]
+name = "gen_objectid"
+crate-type = ["cdylib"]
+
+[dependencies]
+pgxr = { git = "https://github.com/clia/pgxr" }
+bson = "0.14.0"
+log = "0.4.8"
