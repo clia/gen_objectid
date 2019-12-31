@@ -1,7 +1,7 @@
 use pgxr::bindings::*;
 use pgxr::*;
 use bson::oid;
-use log::{debug, error, info, warn};
+use log::warn;
 
 PG_MODULE_MAGIC!();
 
@@ -29,6 +29,6 @@ pub fn gen_objectid() -> String {
 mod tests {
     #[test]
     fn test_gen_objectid() {
-        println!("{}", gen_objectid())
+        println!("{}", crate::gen_objectid())
     }
 }
