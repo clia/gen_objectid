@@ -12,3 +12,8 @@ crate-type = ["cdylib"]
 pgxr = { git = "https://github.com/clia/pgxr" }
 bson = "0.14.0"
 log = "0.4.8"
+
+[profile.release]
+lto = true
+opt-level = 3
+codegen-units = 1
